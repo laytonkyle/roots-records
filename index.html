@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poppenhusen Family Records — Schleswig-Domgemeinde</title>
+    <title>Roots Records — German Church Record Archive</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,6 +18,7 @@
             --color-success-bg: #e8f5ec;
             --color-warning: #c4860b;
             --color-warning-bg: #fff8e6;
+            --color-muted-bg: #f3f0eb;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
@@ -32,13 +33,14 @@
         .intro p { font-size: 0.95rem; margin-bottom: 8px; }
         .intro p:last-child { margin-bottom: 0; }
 
+        .family-heading { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.8rem; color: var(--color-accent); margin-bottom: 8px; }
+        .family-subtitle { color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 32px; }
+
         .section-title { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.5rem; color: var(--color-accent); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: 10px; }
         .section-icon { font-size: 1.2rem; }
-
         .section { margin-bottom: 48px; }
 
         .report-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-
         .report-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 20px 24px; text-decoration: none; color: inherit; transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s; display: block; }
         .report-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: var(--color-accent); transform: translateY(-1px); }
         .report-card h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.15rem; color: var(--color-text); margin-bottom: 6px; }
@@ -55,10 +57,18 @@
         .family-tree { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 28px; margin-bottom: 40px; }
         .family-tree h2 { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.4rem; color: var(--color-accent); margin-bottom: 16px; }
         .tree-gen { margin-bottom: 20px; }
+        .tree-gen:last-child { margin-bottom: 0; }
         .tree-gen-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-muted); margin-bottom: 8px; }
         .tree-people { display: flex; flex-wrap: wrap; gap: 8px; }
         .tree-person { padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; background: var(--color-accent-light); color: var(--color-text); border: 1px solid var(--color-border); }
         .tree-person.primary { background: var(--color-accent); color: white; border-color: var(--color-accent); font-weight: 600; }
+
+        .divider { border: none; border-top: 2px solid var(--color-border); margin: 64px 0 48px; }
+
+        .secondary-section { opacity: 0.85; }
+        .secondary-section .section-title { font-size: 1.3rem; color: var(--color-text-muted); }
+        .secondary-section .report-card { background: var(--color-muted-bg); border-color: var(--color-border); }
+        .secondary-section .report-card:hover { background: var(--color-surface); }
 
         .footer { text-align: center; padding-top: 32px; border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 0.8rem; }
 
@@ -72,26 +82,25 @@
 <div class="container">
 
     <div class="header">
-        <h1>Poppenhusen Family Records</h1>
-        <div class="subtitle">Schleswig-Domgemeinde, Schleswig-Holstein, Germany</div>
-        <div class="meta">19 records from Archion.de parish registers &middot; Research ongoing</div>
+        <h1>Roots Records</h1>
+        <div class="subtitle">German Church Record Archive</div>
+        <div class="meta">Parish records from Archion.de &middot; Research ongoing</div>
     </div>
 
     <div class="intro">
-        <p>This archive contains German church records (Kirchenbücher) for the <strong>Poppenhusen / Poppenhausen</strong> family of Schleswig-Domgemeinde, discovered through the Archion.de digital archive. Records include christenings, marriages, deaths, and name index searches spanning roughly 1745&ndash;1838.</p>
-        <p>Each report contains original document scans with OCR transcriptions and historical context.</p>
+        <p>This archive contains German church records (Kirchenbücher) discovered through the Archion.de digital archive. Each report includes original document scans with OCR transcriptions and historical context.</p>
     </div>
 
-    <!-- Family Overview -->
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- POPPENHUSEN LINE                            -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <h2 class="family-heading">Poppenhusen / Poppenhausen</h2>
+    <div class="family-subtitle">Schleswig-Domgemeinde, Schleswig-Holstein &mdash; centered on Wilhelm Friedrich &amp; Anna Maria</div>
+
+    <!-- Family Tree -->
     <div class="family-tree">
-        <h2>Key People</h2>
-        <div class="tree-gen">
-            <div class="tree-gen-label">Earlier Generation (pre-1750)</div>
-            <div class="tree-people">
-                <span class="tree-person">Georg Wilhelm Poppenhausen</span>
-                <span class="tree-person">Metta Magdalena (wife)</span>
-            </div>
-        </div>
+        <h2>Family Overview</h2>
         <div class="tree-gen">
             <div class="tree-gen-label">Parents &mdash; Married May 1775</div>
             <div class="tree-people">
@@ -104,18 +113,40 @@
             <div class="tree-people">
                 <span class="tree-person">Anna Maria Catharina Elijabeth (1776)</span>
                 <span class="tree-person">Catharina Dorothea (1778)</span>
-                <span class="tree-person">Christina Dorthea (d. 1826)</span>
                 <span class="tree-person">Nicolaus Friedrich</span>
+                <span class="tree-person">Christina Dorthea (d. 1826)</span>
                 <span class="tree-person">Sophia Augusta</span>
                 <span class="tree-person">Wilhelm Friedrich Jr.</span>
             </div>
         </div>
         <div class="tree-gen">
-            <div class="tree-gen-label">Related Branch &mdash; Jürgen Wilhelm Poppenhausen</div>
+            <div class="tree-gen-label">Possible Earlier Generation (pre-1750)</div>
             <div class="tree-people">
-                <span class="tree-person">Jürgen Wilhelm Poppenhausen</span>
-                <span class="tree-person">Margaretha Sophia Augusta (d. 1828)</span>
+                <span class="tree-person">Friedrich Nikolaus (b. ~1748)</span>
+                <span class="tree-person">Georg Wilhelm Poppenhausen</span>
             </div>
+        </div>
+    </div>
+
+    <!-- Key Records -->
+    <div class="section">
+        <h2 class="section-title"><span class="section-icon">&#11088;</span> Key Records</h2>
+        <div class="report-grid">
+            <a class="report-card" href="report_Poppenhusen_Marriage_1775.html">
+                <h3>Marriage: Wilhelm Friedrich &times; Anna Maria Schmidt (1775)</h3>
+                <div class="desc">Entry #7, page 16 &mdash; the founding record. Wilhelm Friedrich Poppenhusen married Anna Maria Schmidt ("Schmidten"), May 1775.</div>
+                <div class="tags"><span class="tag tag-marriage">Marriage</span></div>
+            </a>
+            <a class="report-card" href="report_Poppenhusen_Christening_Entry63_1776.html">
+                <h3>Christening: Anna Maria Catharina Elijabeth (1776)</h3>
+                <div class="desc">Entry #63 &mdash; breakthrough record confirming parentage. Father: Wilhelm Friedrich Poppenhusen, Schlachter (butcher). First child.</div>
+                <div class="tags"><span class="tag tag-christening">Christening</span></div>
+            </a>
+            <a class="report-card" href="report_Christina_Dorthea_Poppenhusen_CHRISTINA-POPPENHUSEN.html">
+                <h3>Death: Christina Dorthea Poppenhusen (1826)</h3>
+                <div class="desc">Entry #32 &mdash; single, ~30 years old. Parents: Nicolaus Friedrich Poppenhusen (Hoffzimmergesell) &amp; Anna Maria née Schmitt. Granddaughter of Wilhelm &amp; Anna.</div>
+                <div class="tags"><span class="tag tag-death">Death</span></div>
+            </a>
         </div>
     </div>
 
@@ -123,134 +154,114 @@
     <div class="section">
         <h2 class="section-title"><span class="section-icon">&#128218;</span> Name Index Searches</h2>
         <div class="report-grid">
-            <a class="report-card" href="report_Poppenhausen_Christening_NameIndex_FINAL.html">
-                <h3>Christening Name Index (1711&ndash;1771)</h3>
-                <div class="desc">3 confirmed Poppenhausen entries: Anna Margaretha (1745), Friedrich Nikolaus (1748), Anna Sybilla Dorothea (1753). Includes OCR hallucination analysis.</div>
-                <div class="tags"><span class="tag tag-index">Name Index</span><span class="tag tag-christening">Christening</span></div>
-            </a>
             <a class="report-card" href="report_Poppenhusen_Christening_NameIndex_1770-1821.html">
                 <h3>Christening Name Index (1770&ndash;1821)</h3>
-                <div class="desc">21 Poppenhusen entries spanning two generations, from Anna Maria Catharina Elijabeth (1776) through grandchildren (1821).</div>
+                <div class="desc">21 Poppenhusen entries spanning two generations &mdash; Wilhelm &amp; Anna's children (1776&ndash;1795) through grandchildren (1808&ndash;1821).</div>
                 <div class="tags"><span class="tag tag-index">Name Index</span><span class="tag tag-christening">Christening</span></div>
             </a>
-            <a class="report-card" href="report_Poppenhusen_Christening_NameIndex.html">
-                <h3>Christening Name Index (early search)</h3>
-                <div class="desc">Initial name index search results for Poppenhusen christenings. Superseded by the FINAL report above.</div>
+            <a class="report-card" href="report_Poppenhausen_Christening_NameIndex_FINAL.html">
+                <h3>Christening Name Index (1711&ndash;1771)</h3>
+                <div class="desc">3 confirmed earlier-generation entries: Anna Margaretha (1745), Friedrich Nikolaus (1748), Anna Sybilla Dorothea (1753). Includes OCR hallucination analysis.</div>
                 <div class="tags"><span class="tag tag-index">Name Index</span><span class="tag tag-christening">Christening</span></div>
             </a>
         </div>
     </div>
 
-    <!-- Marriage Records -->
+    <!-- Family Member Reports -->
     <div class="section">
-        <h2 class="section-title"><span class="section-icon">&#128141;</span> Marriage Records</h2>
+        <h2 class="section-title"><span class="section-icon">&#128100;</span> Family Members</h2>
         <div class="report-grid">
-            <a class="report-card" href="report_Poppenhusen_Marriage_1775.html">
-                <h3>Wilhelm Friedrich &times; Anna Maria Schmidt (1775)</h3>
-                <div class="desc">Entry #7, page 16 &mdash; Marriage of Wilhelm Friedrich Poppenhusen and Anna Maria Schmidt ("Schmidten"), May 1775. Key founding record.</div>
-                <div class="tags"><span class="tag tag-marriage">Marriage</span></div>
+            <a class="report-card" href="report_Wilhelm_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html">
+                <h3>Wilhelm Friedrich Poppenhusen</h3>
+                <div class="desc">Schlachter (butcher), married Anna Maria Schmidt in 1775. Central figure of the research.</div>
+                <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-marriage">Marriage</span></div>
             </a>
-            <a class="report-card" href="report_Poppenhusen_Marriage.html">
-                <h3>Nicolaus Friedrich Poppenhusen (Marriage)</h3>
-                <div class="desc">Marriage record search for Nicolaus Friedrich Poppenhusen.</div>
-                <div class="tags"><span class="tag tag-marriage">Marriage</span></div>
+            <a class="report-card" href="report_Anna_Maria_Schmidt_CLI-SCHMIDT.html">
+                <h3>Anna Maria Schmidt</h3>
+                <div class="desc">Wife of Wilhelm Friedrich. Married May 1775. Christening name index search in the S section.</div>
+                <div class="tags"><span class="tag tag-person">Person</span></div>
             </a>
-        </div>
-    </div>
-
-    <!-- Christening Records -->
-    <div class="section">
-        <h2 class="section-title"><span class="section-icon">&#9748;</span> Christening Records</h2>
-        <div class="report-grid">
-            <a class="report-card" href="report_Poppenhusen_Christening_Entry63_1776.html">
-                <h3>Anna Maria Catharina Elijabeth (1776)</h3>
-                <div class="desc">Entry #63, 1776 &mdash; First child of Wilhelm Friedrich & Anna Maria. Breakthrough record confirming parentage. Father listed as "Schlachter" (butcher).</div>
-                <div class="tags"><span class="tag tag-christening">Christening</span><span class="tag tag-person">Key Record</span></div>
-            </a>
-            <a class="report-card" href="report_Nagel_Margareta_Dorothea_Christening_NameIndex.html">
-                <h3>Margareta Dorothea Nagel</h3>
-                <div class="desc">Christening name index search in Flensburg-St. Johannis for Margareta Dorothea Nagel (related family line).</div>
-                <div class="tags"><span class="tag tag-christening">Christening</span><span class="tag tag-index">Name Index</span></div>
-            </a>
-        </div>
-    </div>
-
-    <!-- Death Records -->
-    <div class="section">
-        <h2 class="section-title"><span class="section-icon">&#9949;</span> Death Records</h2>
-        <div class="report-grid">
-            <a class="report-card" href="report_Sophia_Augusta_Poppenhausen_Death_1828.html">
-                <h3>Margaretha Sophia Augusta Poppenhausen (1828)</h3>
-                <div class="desc">Entry #55, 1828 &mdash; Daughter of Jürgen Wilhelm Poppenhausen, died age ~2. Jürgen Wilhelm branch, second wife Wiebke née Treshen.</div>
-                <div class="tags"><span class="tag tag-death">Death</span></div>
-            </a>
-        </div>
-    </div>
-
-    <!-- Individual Person Reports -->
-    <div class="section">
-        <h2 class="section-title"><span class="section-icon">&#128100;</span> Individual Person Reports</h2>
-        <div class="report-grid">
-            <a class="report-card" href="report_Christina_Dorthea_Poppenhusen_CHRISTINA-POPPENHUSEN.html">
-                <h3>Christina Dorthea Poppenhusen</h3>
-                <div class="desc">Death 1826 &mdash; Single, ~30 years old. Parents: Nicolaus Friedrich Poppenhusen & Anna Maria née Schmitt.</div>
-                <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-death">Death</span></div>
-            </a>
-            <a class="report-card" href="report_Christina_Dorthea_Poppenhusen_CLI-POPPENHUSEN.html">
-                <h3>Christina Dorthea Poppenhusen (CLI)</h3>
-                <div class="desc">Pipeline-generated person report for Christina Dorthea Poppenhusen.</div>
+            <a class="report-card" href="report_Nicolaus_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html">
+                <h3>Nicolaus Friedrich Poppenhusen</h3>
+                <div class="desc">Son of Wilhelm &amp; Anna. Father of Christina Dorthea. Occupation: Hoffzimmergesell (court carpenter).</div>
                 <div class="tags"><span class="tag tag-person">Person</span></div>
             </a>
             <a class="report-card" href="report_Friedrich_Nikolaus_Poppenhausen_CLI-POPPENHAUSEN.html">
                 <h3>Friedrich Nikolaus Poppenhausen</h3>
-                <div class="desc">Born ~1748 per name index. Likely same person as Nicolaus Friedrich (German name reversal was common).</div>
+                <div class="desc">Born ~1748 per name index. Likely same as Nicolaus Friedrich (German name reversal was common).</div>
                 <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-christening">Christening</span></div>
             </a>
-            <a class="report-card" href="report_Nicolaus_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html">
-                <h3>Nicolaus Friedrich Poppenhusen</h3>
-                <div class="desc">Father of Christina Dorthea. Occupation: Hoffzimmergesell (court carpenter).</div>
-                <div class="tags"><span class="tag tag-person">Person</span></div>
+            <a class="report-card" href="report_Anna_Maria_Catharina_Elijabeth_Poppenhusen_CLI-POPPENHUSEN.html">
+                <h3>Anna Maria Catharina Elijabeth Poppenhusen</h3>
+                <div class="desc">First child of Wilhelm &amp; Anna Maria, christened 1776.</div>
+                <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-christening">Christening</span></div>
+            </a>
+            <a class="report-card" href="report_Christina_Dorthea_Poppenhusen_CLI-POPPENHUSEN.html">
+                <h3>Christina Dorthea Poppenhusen</h3>
+                <div class="desc">Granddaughter of Wilhelm &amp; Anna. Died 1826, single, ~30 years old.</div>
+                <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-death">Death</span></div>
             </a>
             <a class="report-card" href="report_Anna_Maria_Poppenhusen_CLI-POPPENHUSEN.html">
                 <h3>Anna Maria Poppenhusen</h3>
                 <div class="desc">Pipeline search results for Anna Maria Poppenhusen.</div>
                 <div class="tags"><span class="tag tag-person">Person</span></div>
             </a>
-            <a class="report-card" href="report_Anna_Maria_Catharina_Elijabeth_Poppenhusen_CLI-POPPENHUSEN.html">
-                <h3>Anna Maria Catharina Elijabeth Poppenhusen</h3>
-                <div class="desc">First child of Wilhelm Friedrich & Anna Maria, christened 1776.</div>
-                <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-christening">Christening</span></div>
-            </a>
-            <a class="report-card" href="report_Anna_Maria_Schmidt_CLI-SCHMIDT.html">
-                <h3>Anna Maria Schmidt</h3>
-                <div class="desc">Wife of Wilhelm Friedrich Poppenhusen. Married May 1775. Christening name index search in the S section.</div>
-                <div class="tags"><span class="tag tag-person">Person</span></div>
-            </a>
-            <a class="report-card" href="report_Anna_Margaretha_Poppenhausen_CLI-POPPENHAUSEN.html">
-                <h3>Anna Margaretha Poppenhausen</h3>
-                <div class="desc">Christened 1745 per name index, ref #99. Earlier generation.</div>
-                <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-christening">Christening</span></div>
-            </a>
-            <a class="report-card" href="report_Anna_Sybilla_Dorothea_Poppenhausen_CLI-POPPENHAUSEN.html">
-                <h3>Anna Sybilla Dorothea Poppenhausen</h3>
-                <div class="desc">Christened 1753 per name index, ref #19. Earlier generation.</div>
-                <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-christening">Christening</span></div>
-            </a>
-            <a class="report-card" href="report_Sophia_Augusta_Poppenhusen_CLI-POPPENHUSEN.html">
-                <h3>Sophia Augusta Poppenhusen</h3>
-                <div class="desc">Pipeline-generated report for Sophia Augusta Poppenhusen.</div>
-                <div class="tags"><span class="tag tag-person">Person</span></div>
-            </a>
-            <a class="report-card" href="report_Wilhelm_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html">
-                <h3>Wilhelm Friedrich Poppenhusen</h3>
-                <div class="desc">Schlachter (butcher), married Anna Maria Schmidt in 1775. Central figure of the research.</div>
-                <div class="tags"><span class="tag tag-person">Person</span><span class="tag tag-marriage">Marriage</span></div>
+            <a class="report-card" href="report_Poppenhusen_Marriage.html">
+                <h3>Nicolaus Friedrich Poppenhusen (Marriage)</h3>
+                <div class="desc">Marriage record search for Nicolaus Friedrich Poppenhusen, son of Wilhelm &amp; Anna.</div>
+                <div class="tags"><span class="tag tag-marriage">Marriage</span></div>
             </a>
         </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- OTHER RECORDS                               -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <hr class="divider">
+
+    <div class="secondary-section">
+        <h2 class="family-heading" style="color: var(--color-text-muted); font-size: 1.5rem;">Other Records</h2>
+        <div class="family-subtitle">Records not directly connected to the Wilhelm Friedrich &amp; Anna Maria line</div>
+
+        <div class="section">
+            <div class="report-grid">
+                <a class="report-card" href="report_Sophia_Augusta_Poppenhausen_Death_1828.html">
+                    <h3>Margaretha Sophia Augusta Poppenhausen (1828)</h3>
+                    <div class="desc">Death entry #55 &mdash; daughter of Jürgen Wilhelm Poppenhausen, died age ~2. Jürgen Wilhelm branch, not connected to Wilhelm Friedrich's line.</div>
+                    <div class="tags"><span class="tag tag-death">Death</span><span class="tag tag-person">Jürgen Wilhelm Branch</span></div>
+                </a>
+                <a class="report-card" href="report_Sophia_Augusta_Poppenhusen_CLI-POPPENHUSEN.html">
+                    <h3>Sophia Augusta Poppenhusen</h3>
+                    <div class="desc">Pipeline-generated report for Sophia Augusta (Jürgen Wilhelm branch).</div>
+                    <div class="tags"><span class="tag tag-person">Jürgen Wilhelm Branch</span></div>
+                </a>
+                <a class="report-card" href="report_Anna_Margaretha_Poppenhausen_CLI-POPPENHAUSEN.html">
+                    <h3>Anna Margaretha Poppenhausen</h3>
+                    <div class="desc">Christened 1745, ref #99. Earlier generation &mdash; connection to Wilhelm Friedrich unconfirmed.</div>
+                    <div class="tags"><span class="tag tag-person">Earlier Gen</span><span class="tag tag-christening">Christening</span></div>
+                </a>
+                <a class="report-card" href="report_Anna_Sybilla_Dorothea_Poppenhausen_CLI-POPPENHAUSEN.html">
+                    <h3>Anna Sybilla Dorothea Poppenhausen</h3>
+                    <div class="desc">Christened 1753, ref #19. Earlier generation &mdash; connection to Wilhelm Friedrich unconfirmed.</div>
+                    <div class="tags"><span class="tag tag-person">Earlier Gen</span><span class="tag tag-christening">Christening</span></div>
+                </a>
+                <a class="report-card" href="report_Nagel_Margareta_Dorothea_Christening_NameIndex.html">
+                    <h3>Margareta Dorothea Nagel</h3>
+                    <div class="desc">Christening name index search in Flensburg-St. Johannis. Different family line (Nagel).</div>
+                    <div class="tags"><span class="tag tag-person">Nagel Family</span><span class="tag tag-index">Name Index</span></div>
+                </a>
+                <a class="report-card" href="report_Poppenhusen_Christening_NameIndex.html">
+                    <h3>Christening Name Index (early search)</h3>
+                    <div class="desc">Initial name index search &mdash; superseded by the comprehensive reports above.</div>
+                    <div class="tags"><span class="tag tag-index">Superseded</span></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="footer">
-        <p>Records sourced from <strong>Archion.de</strong> &mdash; Schleswig-Domgemeinde parish, Schleswig-Holstein, Germany</p>
+        <p>Records sourced from <strong>Archion.de</strong> &mdash; German parish registers</p>
         <p style="margin-top: 4px;">Generated with Roots Record Finder &middot; Last updated March 2026</p>
     </div>
 
