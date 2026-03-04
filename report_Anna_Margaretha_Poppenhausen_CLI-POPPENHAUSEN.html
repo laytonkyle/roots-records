@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roots Record Finder — Anna Margaretha Poppenhausen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #faf8f5;
+            --color-surface: #ffffff;
+            --color-text: #2c2416;
+            --color-text-muted: #6b5e4f;
+            --color-accent: #8b6914;
+            --color-accent-light: #f5eddc;
+            --color-border: #e5ddd0;
+            --color-success: #2d7d46;
+            --color-success-bg: #e8f5ec;
+            --color-best: #c4860b;
+            --color-best-bg: #fff8e6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .header h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+        }
+
+        .header .date {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .card h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 20px 0 8px;
+        }
+
+        /* Person summary */
+        .person-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .person-summary .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .person-summary .field .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            margin-bottom: 2px;
+        }
+
+        .person-summary .field .value {
+            font-size: 0.95rem;
+        }
+
+        /* Match indicator */
+        .match-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-success-bg);
+            color: var(--color-success);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        /* Best match callout */
+        .best-match-box {
+            background: var(--color-best-bg);
+            border: 2px solid var(--color-best);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+
+        .best-match-box .best-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-best);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .best-match-box .best-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .best-match-box .best-page {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+
+        /* Source URL box */
+        .source-url-box {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .source-url-box .source-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            white-space: nowrap;
+        }
+
+        .source-url-box a {
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        /* Book path / breadcrumb box */
+        .book-path-box {
+            background: var(--color-accent-light);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 14px 18px;
+        }
+
+        .book-path-box .path-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            margin-bottom: 6px;
+        }
+
+        .book-path-box .path-text {
+            font-size: 0.9rem;
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        .book-path-box .path-separator {
+            color: var(--color-accent);
+            margin: 0 4px;
+        }
+
+        /* Page image blocks */
+        .page-image-block {
+            margin: 16px 0 24px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .page-image-block.best-page {
+            border: 2px solid var(--color-best);
+        }
+
+        .page-image-header {
+            background: var(--color-bg);
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .page-image-block.best-page .page-image-header {
+            background: var(--color-best-bg);
+        }
+
+        .page-image-header .page-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .page-image-header .page-names {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            text-align: right;
+            max-width: 60%;
+        }
+
+        .page-image-header .best-tag {
+            display: inline-block;
+            background: var(--color-best);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 8px;
+        }
+
+        /* Zoomable image */
+        .zoomable-wrapper {
+            position: relative;
+            overflow: hidden;
+            cursor: zoom-in;
+            background: #f0ede8;
+        }
+
+        .zoomable-wrapper.zoomed {
+            cursor: grab;
+            overflow: auto;
+        }
+
+        .zoomable-wrapper.zoomed.dragging {
+            cursor: grabbing;
+        }
+
+        .zoomable-wrapper img {
+            width: 100%;
+            display: block;
+            transition: none;
+        }
+
+        .zoomable-wrapper.zoomed img {
+            width: 200%;
+            max-width: none;
+        }
+
+        .zoom-hint {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .zoomable-wrapper.zoomed .zoom-hint {
+            display: none;
+        }
+
+        /* Quadrant zoomed views */
+        .quadrant-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .quadrant-grid img {
+            width: 100%;
+            border: 2px solid var(--color-accent);
+            border-radius: 4px;
+        }
+
+        /* Name index entries list */
+        .index-entries {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .index-entries li {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .index-entries li:last-child {
+            border-bottom: none;
+        }
+
+        .index-entries li.best-entry {
+            background: var(--color-best-bg);
+            border-left: 3px solid var(--color-best);
+            font-weight: 600;
+        }
+
+        .index-entries .entry-name {
+            flex: 1;
+        }
+
+        .index-entries .entry-page {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            white-space: nowrap;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+
+        /* Transcription */
+        .transcription {
+            background: var(--color-accent-light);
+            border-left: 3px solid var(--color-accent);
+            padding: 16px 20px;
+            margin: 12px 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+
+        /* Data table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+        }
+
+        .data-table th, .data-table td {
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .data-table th {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            background: var(--color-bg);
+        }
+
+        .data-table td {
+            font-size: 0.95rem;
+        }
+
+        /* Citation box */
+        .citation-box {
+            background: var(--color-bg);
+            border: 1px dashed var(--color-border);
+            border-radius: 6px;
+            padding: 16px;
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .citation-box:hover::after {
+            content: "Click to copy";
+            position: absolute;
+            top: -8px;
+            right: 12px;
+            background: var(--color-accent);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Next steps */
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .next-steps li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.95rem;
+        }
+
+        .next-steps li:last-child {
+            border-bottom: none;
+        }
+
+        .next-steps li::before {
+            content: "\2192";
+            color: var(--color-accent);
+            margin-right: 8px;
+        }
+
+        /* Source link */
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Print styles */
+        @media print {
+            body { background: white; }
+            .container { max-width: 100%; padding: 20px; }
+            .citation-box:hover::after { display: none; }
+            .zoom-hint { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Roots Record Finder</h1>
+            <div class="subtitle">Automated Genealogy Research Report</div>
+            <div class="date">Generated February 28, 2026</div>
+        </div>
+
+        <!-- Person Summary -->
+        <div class="card">
+            <h2>Search Target</h2>
+            <div class="person-summary">
+                <div class="field">
+                    <span class="label">Name</span>
+                    <span class="value">Anna Margaretha Poppenhausen</span>
+                </div>
+                <div class="field">
+                    <span class="label">FamilySearch ID</span>
+                    <span class="value">CLI-POPPENHAUSEN</span>
+                </div>
+                
+                
+                
+                
+            </div>
+        </div>
+
+        
+        <!-- Book Navigation Path -->
+        <div class="card">
+            <h2>Source Book</h2>
+            <div class="book-path-box">
+                <div class="path-label">Navigate to this book on Archion.de</div>
+                <div class="path-text">
+                    All Archives<span class="path-separator">/</span>Schleswig-Holstein<span class="path-separator">/</span>Landeskirchliches Archiv der Evangelisch-Lutherischen Kirche in Norddeutschland<span class="path-separator">/</span>Kirchenkreis Schleswig-Flensburg<span class="path-separator">/</span>Schleswig-Domgemeinde<span class="path-separator">/</span>Taufen 1712-1767
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+        
+        <div class="card">
+            <h2>No Matches Found</h2>
+            <p>No records matching Anna Margaretha Poppenhausen were found in the searched volumes. Consider:</p>
+            <ul style="margin-top: 12px; padding-left: 20px;">
+                <li>Expanding the date range</li>
+                <li>Checking neighboring parishes</li>
+                <li>Trying alternate name spellings</li>
+            </ul>
+        </div>
+        
+
+        <!-- Next Steps -->
+        <div class="card next-steps">
+            <h2>Suggested Next Steps</h2>
+            <ul>
+                
+                <li>Try expanding the search date range by 5-10 years</li>
+                
+                <li>Check neighboring parishes for this person&#39;s records</li>
+                
+                <li>Try alternate spellings of the surname</li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <script>
+    // Click-to-zoom with pan support
+    function toggleZoom(wrapper) {
+        if (wrapper._dragged) { wrapper._dragged = false; return; }
+        wrapper.classList.toggle('zoomed');
+        if (!wrapper.classList.contains('zoomed')) {
+            wrapper.scrollTop = 0;
+            wrapper.scrollLeft = 0;
+        }
+    }
+
+    function startDrag(e, wrapper) {
+        if (!wrapper.classList.contains('zoomed')) return;
+        wrapper._dragging = true;
+        wrapper._dragged = false;
+        wrapper._startX = e.clientX + wrapper.scrollLeft;
+        wrapper._startY = e.clientY + wrapper.scrollTop;
+        wrapper.classList.add('dragging');
+        e.preventDefault();
+    }
+
+    function doDrag(e, wrapper) {
+        if (!wrapper._dragging) return;
+        wrapper._dragged = true;
+        wrapper.scrollLeft = wrapper._startX - e.clientX;
+        wrapper.scrollTop = wrapper._startY - e.clientY;
+    }
+
+    function stopDrag(wrapper) {
+        if (wrapper._dragging) {
+            wrapper._dragging = false;
+            wrapper.classList.remove('dragging');
+        }
+    }
+    </script>
+</body>
+</html>
