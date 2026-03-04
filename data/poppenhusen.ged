@@ -1,0 +1,245 @@
+0 HEAD
+1 SOUR RootsRecords
+2 VERS 1.0
+2 NAME Roots Records
+1 DEST ANY
+1 DATE 3 MAR 2026
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+1 NOTE Poppenhusen / Poppenhausen family of Schleswig-Domgemeinde
+2 CONT Schleswig-Holstein, Germany
+2 CONT Source: Archion.de parish records
+
+0 @I001@ INDI
+1 NAME Georg Wilhelm /Poppenhausen/
+2 GIVN Georg Wilhelm
+2 SURN Poppenhausen
+1 SEX M
+1 OCCU Unknown
+1 NOTE Earlier generation. Father of Paul Juergen (1751). Possible father or relative of Wilhelm Friedrich.
+1 FAMS @F001@
+
+0 @I002@ INDI
+1 NAME Metta Magdalena //
+2 GIVN Metta Magdalena
+1 SEX F
+1 NOTE Wife of Georg Wilhelm Poppenhausen. Maiden name unknown.
+1 FAMS @F001@
+
+0 @I003@ INDI
+1 NAME Paul Juergen /Poppenhausen/
+2 GIVN Paul Juergen
+2 SURN Poppenhausen
+1 SEX M
+1 BIRT
+2 DATE 14 JAN 1751
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Entry 65, Taufen 1712-1767, Archion viewer page 42
+1 NOTE Son of Georg Wilhelm Poppenhausen. Found in christening register but NOT in name index (index incomplete).
+1 FAMC @F001@
+
+0 @I004@ INDI
+1 NAME Wilhelm Friedrich /Poppenhusen/
+2 GIVN Wilhelm Friedrich
+2 SURN Poppenhusen
+1 SEX M
+1 OCCU Schlachter (butcher)
+1 NOTE Central figure of research. Occupation confirmed from christening entry 63 (1776). Own christening not found in name index 1711-1771. Death not found in Schleswig-Domgemeinde.
+1 _REPORT report_Wilhelm_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html
+1 FAMS @F002@
+
+0 @I005@ INDI
+1 NAME Anna Maria /Schmidt/
+2 GIVN Anna Maria
+2 SURN Schmidt
+1 SEX F
+1 NOTE Married name: Poppenhusen. Written as "Schmidten" in marriage record. Death not found in Schleswig-Domgemeinde or neighboring parishes.
+1 _REPORT report_Anna_Maria_Schmidt_CLI-SCHMIDT.html
+1 FAMS @F002@
+
+0 @I006@ INDI
+1 NAME Anna Maria Catharina Elijabeth /Poppenhusen/
+2 GIVN Anna Maria Catharina Elijabeth
+2 SURN Poppenhusen
+1 SEX F
+1 BIRT
+2 DATE 15 1776
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Entry 63, Taufen 1770-1794, page 53. Baptized 18th. First child of Wilhelm Friedrich & Anna Maria.
+1 NOTE Breakthrough record confirming parentage. Father: Wilhelm Friedrich Poppenhusen, Schlachter.
+1 _REPORT report_Anna_Maria_Catharina_Elijabeth_Poppenhusen_CLI-POPPENHUSEN.html
+1 FAMC @F002@
+
+0 @I007@ INDI
+1 NAME Catharina Dorothea /Poppenhusen/
+2 GIVN Catharina Dorothea
+2 SURN Poppenhusen
+1 SEX F
+1 BIRT
+2 DATE 1778
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Christening name index 1770-1821, ref 18
+1 FAMC @F002@
+
+0 @I008@ INDI
+1 NAME Nicolaus Friedrich /Poppenhusen/
+2 GIVN Nicolaus Friedrich
+2 SURN Poppenhusen
+1 SEX M
+1 OCCU Hoffzimmergesell (court carpenter journeyman)
+1 NOTE Son of Wilhelm Friedrich & Anna Maria. Father of Christina Dorthea. Also appears as "Friedrich Nikolaus" in earlier name index (German name reversal was common).
+1 _REPORT report_Nicolaus_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html
+1 FAMS @F003@
+1 FAMC @F002@
+
+0 @I009@ INDI
+1 NAME Anna Maria /Schmitt/
+2 GIVN Anna Maria
+2 SURN Schmitt
+1 SEX F
+1 NOTE Wife of Nicolaus Friedrich. Maiden name "Schmitt" from Christina Dorthea's 1826 death record. Possibly related to Anna Maria Schmidt (grandmother) given same surname.
+1 FAMS @F003@
+
+0 @I010@ INDI
+1 NAME Christina Dorthea /Poppenhusen/
+2 GIVN Christina Dorthea
+2 SURN Poppenhusen
+1 SEX F
+1 BIRT
+2 DATE ABT 1796
+2 NOTE Estimated from death record (died ~30 years old in 1826)
+1 DEAT
+2 DATE 1826
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Death entry #32. Single (ledig), ~30 years old. Parents: Nicolaus Friedrich Poppenhusen (Hoffzimmergesell) & Anna Maria nee Schmitt.
+1 _REPORT report_Christina_Dorthea_Poppenhusen_CLI-POPPENHUSEN.html
+1 FAMC @F003@
+
+0 @I011@ INDI
+1 NAME Friedrich Nikolaus /Poppenhausen/
+2 GIVN Friedrich Nikolaus
+2 SURN Poppenhausen
+1 SEX M
+1 BIRT
+2 DATE ABT 1748
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Christening name index 1711-1771, ref 38. Visually confirmed on 3x zoomed crop. NOT found in chronological register.
+1 NOTE Likely same person as Nicolaus Friedrich Poppenhusen (German name reversal). Kept separate as the connection is not proven.
+1 _REPORT report_Friedrich_Nikolaus_Poppenhausen_CLI-POPPENHAUSEN.html
+
+0 @I012@ INDI
+1 NAME Anna Margaretha /Poppenhausen/
+2 GIVN Anna Margaretha
+2 SURN Poppenhausen
+1 SEX F
+1 BIRT
+2 DATE 1745
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Christening name index 1711-1771, ref 99. Connection to Wilhelm Friedrich unconfirmed.
+1 _REPORT report_Anna_Margaretha_Poppenhausen_CLI-POPPENHAUSEN.html
+
+0 @I013@ INDI
+1 NAME Anna Sybilla Dorothea /Poppenhausen/
+2 GIVN Anna Sybilla Dorothea
+2 SURN Poppenhausen
+1 SEX F
+1 BIRT
+2 DATE 1753
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Christening name index 1711-1771, ref 19. Connection to Wilhelm Friedrich unconfirmed.
+1 _REPORT report_Anna_Sybilla_Dorothea_Poppenhausen_CLI-POPPENHAUSEN.html
+
+0 @I014@ INDI
+1 NAME Juergen Wilhelm /Poppenhausen/
+2 GIVN Juergen Wilhelm
+2 SURN Poppenhausen
+1 SEX M
+1 OCCU Ohlagesell (oil worker) / Ehehandlungsgesell
+1 NOTE Side discovery. Relationship to Wilhelm Friedrich unknown/unproven. Had two wives.
+1 FAMS @F004@
+1 FAMS @F005@
+
+0 @I015@ INDI
+1 NAME Maria Margaretha Christina /Schuett/
+2 GIVN Maria Margaretha Christina
+2 SURN Schuett
+1 SEX F
+1 NOTE First wife of Juergen Wilhelm Poppenhausen. Named in 1817 death record of daughter Maria Margaretha Ulrica.
+1 FAMS @F004@
+
+0 @I016@ INDI
+1 NAME Maria Margaretha Ulrica /Poppenhausen/
+2 GIVN Maria Margaretha Ulrica
+2 SURN Poppenhausen
+1 SEX F
+1 BIRT
+2 DATE ABT 1813
+2 NOTE Estimated from death age (~4 years old in 1817)
+1 DEAT
+2 DATE 1817
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Death entry #22, Bestattungen 1769-1823, page 280. Died age 4.
+1 FAMC @F004@
+
+0 @I017@ INDI
+1 NAME Wiebke /Treshen/
+2 GIVN Wiebke
+2 SURN Treshen
+1 SEX F
+1 NOTE Second wife of Juergen Wilhelm Poppenhausen. Named in 1828 death record of daughter Sophia Augusta.
+1 FAMS @F005@
+
+0 @I018@ INDI
+1 NAME Margaretha Sophia Augusta /Poppenhausen/
+2 GIVN Margaretha Sophia Augusta
+2 SURN Poppenhausen
+1 SEX F
+1 BIRT
+2 DATE ABT 1826
+2 NOTE Estimated from death age (~2 years old in 1828)
+1 DEAT
+2 DATE 19 APR 1828
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Death entry #55, Bestattungen 1823-1856, page 51. Buried April 23, 1828.
+1 _REPORT report_Sophia_Augusta_Poppenhausen_Death_1828.html
+1 FAMC @F005@
+
+0 @F001@ FAM
+1 HUSB @I001@
+1 WIFE @I002@
+1 CHIL @I003@
+1 NOTE Georg Wilhelm & Metta Magdalena family. Earliest confirmed generation.
+
+0 @F002@ FAM
+1 HUSB @I004@
+1 WIFE @I005@
+1 MARR
+2 DATE MAY 1775
+2 PLAC Schleswig-Domgemeinde, Schleswig-Holstein
+2 NOTE Entry #7, page 16, Trauungen 1755-1851. Bride listed as "Schmidten".
+1 CHIL @I006@
+1 CHIL @I007@
+1 CHIL @I008@
+1 NOTE Wilhelm Friedrich & Anna Maria main family. 12 children in name index (1776-1795), only first two individually confirmed so far.
+
+0 @F003@ FAM
+1 HUSB @I008@
+1 WIFE @I009@
+1 CHIL @I010@
+1 NOTE Nicolaus Friedrich & Anna Maria (nee Schmitt) family. Known from Christina Dorthea's 1826 death record.
+
+0 @F004@ FAM
+1 HUSB @I014@
+1 WIFE @I015@
+1 CHIL @I016@
+1 NOTE Juergen Wilhelm & first wife Maria Margaretha Christina nee Schuett.
+
+0 @F005@ FAM
+1 HUSB @I014@
+1 WIFE @I017@
+1 CHIL @I018@
+1 NOTE Juergen Wilhelm & second wife Wiebke nee Treshen.
+
+0 TRLR

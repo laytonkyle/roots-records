@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree — Roots Records</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/family-chart@0.9.0/dist/styles/family-chart.css">
+    <style>
+        :root {
+            --color-bg: #faf8f5;
+            --color-surface: #ffffff;
+            --color-text: #2c2416;
+            --color-text-muted: #6b5e4f;
+            --color-accent: #8b6914;
+            --color-accent-light: #f5eddc;
+            --color-border: #e5ddd0;
+            --color-male: #5b7fa6;
+            --color-male-bg: #f0f4f8;
+            --color-female: #d4748a;
+            --color-female-bg: #fdf0f3;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            overflow: hidden;
+        }
+
+        /* Top bar */
+        .top-bar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: 12px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .top-bar h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--color-accent);
+        }
+        .top-bar h1 a { color: inherit; text-decoration: none; }
+        .top-bar h1 a:hover { text-decoration: underline; }
+        .top-bar .subtitle { font-size: 0.8rem; color: var(--color-text-muted); margin-left: 12px; }
+        .top-bar-left { display: flex; align-items: center; }
+        .back-link {
+            font-size: 0.85rem; color: var(--color-accent);
+            text-decoration: none; font-weight: 500;
+            padding: 6px 14px; border-radius: 6px;
+            border: 1px solid var(--color-border);
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .back-link:hover { background: var(--color-accent-light); border-color: var(--color-accent); }
+
+        /* Chart container */
+        #FamilyChart { width: 100vw; height: 100vh; padding-top: 56px; }
+
+        /* Legend */
+        .legend {
+            position: fixed; bottom: 16px; left: 16px; z-index: 100;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .legend-title { font-weight: 600; margin-bottom: 6px; color: var(--color-text); }
+        .legend-item { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+        .legend-item:last-child { margin-bottom: 0; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .legend-swatch { width: 16px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+        /* Hide the default card-body chrome so our custom card shows cleanly */
+        .f3 .card-body { background: transparent !important; border: none !important; box-shadow: none !important; }
+        .f3 .card-body .card-image-rect { display: none !important; }
+        .f3 .card-body .card-text-area { display: none !important; }
+
+        /* Connection lines between family members */
+        .f3 path.link {
+            stroke: #c4bdb0 !important;
+            stroke-width: 2px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-left">
+        <h1><a href="index.html">Roots Records</a></h1>
+        <span class="subtitle">Poppenhusen / Poppenhausen Family Tree</span>
+    </div>
+    <a href="index.html" class="back-link">Back to Archive</a>
+</div>
+
+<div id="FamilyChart" class="f3"></div>
+
+<div class="legend">
+    <div class="legend-title">Legend</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:var(--color-male-bg);border-left:3px solid var(--color-male)"></span> Male</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:var(--color-female-bg);border-left:3px solid var(--color-female)"></span> Female</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--color-accent)"></span> Click card to view records</div>
+</div>
+
+<script src="https://unpkg.com/d3@7/dist/d3.min.js"></script>
+<script src="https://unpkg.com/family-chart@0.9.0/dist/family-chart.min.js"></script>
+<script>
+(async function() {
+    var resp = await fetch("data/family-data.json");
+    var data = await resp.json();
+
+    // Extract just the 4-digit year from a GEDCOM date
+    function yearOnly(s) {
+        if (!s) return "";
+        var approx = /^ABT\s+/.test(s);
+        var m = s.match(/(\d{4})/);
+        if (!m) return "";
+        return (approx ? "~" : "") + m[1];
+    }
+
+    function esc(s) {
+        return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+
+    var chart = f3.createChart("#FamilyChart", data);
+    var cardHtml = chart.setCardHtml(function(d) { return "<div></div>"; });
+
+    // Uniform card dimensions — no image area
+    cardHtml.setCardDim({ width: 220, height: 80, img_width: 0, img_height: 0 });
+
+    cardHtml.setCardInnerHtmlCreator(function(d) {
+        var p = d.data.data;
+        var first = p["first name"] || "";
+        var last = p["last name"] || "";
+        var gender = p.gender || "M";
+        var bday = yearOnly(p.birthday);
+        var dday = yearOnly(p.deathday);
+        var report = p.report || "";
+
+        // Date line: "1776 – 1826" or "~1796 – 1826" or "1778" or ""
+        var dates = "";
+        if (bday && dday) dates = bday + " – " + dday;
+        else if (bday) dates = "b. " + bday;
+        else if (dday) dates = "d. " + dday;
+
+        var borderColor = gender === "F" ? "#d4748a" : "#5b7fa6";
+        var bgColor = gender === "F" ? "#fdf0f3" : "#f0f4f8";
+
+        var html = '<div style="' +
+            'padding:10px 14px;' +
+            'width:220px;height:80px;' +
+            'display:flex;flex-direction:column;justify-content:center;' +
+            'background:' + bgColor + ';' +
+            'border:1px solid #e0dcd6;' +
+            'border-left:4px solid ' + borderColor + ';' +
+            'border-radius:8px;' +
+            'box-sizing:border-box;' +
+            'cursor:' + (report ? 'pointer' : 'default') +
+            '">';
+        html += '<div style="font-family:Crimson Pro,Georgia,serif;font-weight:600;font-size:14px;line-height:1.25;color:#2c2416;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(first) + '</div>';
+        html += '<div style="font-size:10px;color:#8b6914;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin:1px 0">' + esc(last) + '</div>';
+        if (dates) html += '<div style="font-size:11px;color:#6b5e4f">' + esc(dates) + '</div>';
+        if (report) html += '<div style="font-size:9px;color:#8b6914;margin-top:2px;font-weight:600">&#9679; View records</div>';
+        html += '</div>';
+        return html;
+    });
+
+    // Click to navigate to report
+    cardHtml.setOnCardClick(function(e, d) {
+        var p = d.data.data;
+        if (p && p.report) {
+            window.location.href = p.report;
+        }
+    });
+
+    // Render centered on Wilhelm Friedrich
+    chart.updateTree({ initial: true });
+    chart.updateMainId("@I004@");
+    chart.updateTree({});
+})();
+</script>
+</body>
+</html>

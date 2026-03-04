@@ -1,0 +1,371 @@
+[
+  {
+    "id": "@I001@",
+    "data": {
+      "first name": "Georg Wilhelm",
+      "last name": "Poppenhausen",
+      "gender": "M",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "Unknown",
+      "report": ""
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [
+        "@I002@"
+      ],
+      "children": [
+        "@I003@"
+      ]
+    }
+  },
+  {
+    "id": "@I002@",
+    "data": {
+      "first name": "Metta Magdalena",
+      "last name": "",
+      "gender": "F",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [
+        "@I001@"
+      ],
+      "children": [
+        "@I003@"
+      ]
+    }
+  },
+  {
+    "id": "@I003@",
+    "data": {
+      "first name": "Paul Juergen",
+      "last name": "Poppenhausen",
+      "gender": "M",
+      "birthday": "14 JAN 1751",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": [
+        "@I001@",
+        "@I002@"
+      ],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I004@",
+    "data": {
+      "first name": "Wilhelm Friedrich",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "Schlachter (butcher)",
+      "report": "report_Wilhelm_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html"
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [
+        "@I005@"
+      ],
+      "children": [
+        "@I006@",
+        "@I007@",
+        "@I008@"
+      ]
+    }
+  },
+  {
+    "id": "@I005@",
+    "data": {
+      "first name": "Anna Maria",
+      "last name": "Schmidt",
+      "gender": "F",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "",
+      "report": "report_Anna_Maria_Schmidt_CLI-SCHMIDT.html"
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [
+        "@I004@"
+      ],
+      "children": [
+        "@I006@",
+        "@I007@",
+        "@I008@"
+      ]
+    }
+  },
+  {
+    "id": "@I006@",
+    "data": {
+      "first name": "Anna Maria Catharina Elijabeth",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "15 1776",
+      "deathday": "",
+      "occupation": "",
+      "report": "report_Anna_Maria_Catharina_Elijabeth_Poppenhusen_CLI-POPPENHUSEN.html"
+    },
+    "rels": {
+      "parents": [
+        "@I004@",
+        "@I005@"
+      ],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I007@",
+    "data": {
+      "first name": "Catharina Dorothea",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "1778",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": [
+        "@I004@",
+        "@I005@"
+      ],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I008@",
+    "data": {
+      "first name": "Nicolaus Friedrich",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "Hoffzimmergesell (court carpenter journeyman)",
+      "report": "report_Nicolaus_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html"
+    },
+    "rels": {
+      "parents": [
+        "@I004@",
+        "@I005@"
+      ],
+      "spouses": [
+        "@I009@"
+      ],
+      "children": [
+        "@I010@"
+      ]
+    }
+  },
+  {
+    "id": "@I009@",
+    "data": {
+      "first name": "Anna Maria",
+      "last name": "Schmitt",
+      "gender": "F",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [
+        "@I008@"
+      ],
+      "children": [
+        "@I010@"
+      ]
+    }
+  },
+  {
+    "id": "@I010@",
+    "data": {
+      "first name": "Christina Dorthea",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "ABT 1796",
+      "deathday": "1826",
+      "occupation": "",
+      "report": "report_Christina_Dorthea_Poppenhusen_CLI-POPPENHUSEN.html"
+    },
+    "rels": {
+      "parents": [
+        "@I008@",
+        "@I009@"
+      ],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I011@",
+    "data": {
+      "first name": "Friedrich Nikolaus",
+      "last name": "Poppenhausen",
+      "gender": "M",
+      "birthday": "ABT 1748",
+      "deathday": "",
+      "occupation": "",
+      "report": "report_Friedrich_Nikolaus_Poppenhausen_CLI-POPPENHAUSEN.html"
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I012@",
+    "data": {
+      "first name": "Anna Margaretha",
+      "last name": "Poppenhausen",
+      "gender": "F",
+      "birthday": "1745",
+      "deathday": "",
+      "occupation": "",
+      "report": "report_Anna_Margaretha_Poppenhausen_CLI-POPPENHAUSEN.html"
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I013@",
+    "data": {
+      "first name": "Anna Sybilla Dorothea",
+      "last name": "Poppenhausen",
+      "gender": "F",
+      "birthday": "1753",
+      "deathday": "",
+      "occupation": "",
+      "report": "report_Anna_Sybilla_Dorothea_Poppenhausen_CLI-POPPENHAUSEN.html"
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I014@",
+    "data": {
+      "first name": "Juergen Wilhelm",
+      "last name": "Poppenhausen",
+      "gender": "M",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "Ohlagesell (oil worker) / Ehehandlungsgesell",
+      "report": ""
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [
+        "@I015@",
+        "@I017@"
+      ],
+      "children": [
+        "@I016@",
+        "@I018@"
+      ]
+    }
+  },
+  {
+    "id": "@I015@",
+    "data": {
+      "first name": "Maria Margaretha Christina",
+      "last name": "Schuett",
+      "gender": "F",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [
+        "@I014@"
+      ],
+      "children": [
+        "@I016@"
+      ]
+    }
+  },
+  {
+    "id": "@I016@",
+    "data": {
+      "first name": "Maria Margaretha Ulrica",
+      "last name": "Poppenhausen",
+      "gender": "F",
+      "birthday": "ABT 1813",
+      "deathday": "1817",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": [
+        "@I014@",
+        "@I015@"
+      ],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I017@",
+    "data": {
+      "first name": "Wiebke",
+      "last name": "Treshen",
+      "gender": "F",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [
+        "@I014@"
+      ],
+      "children": [
+        "@I018@"
+      ]
+    }
+  },
+  {
+    "id": "@I018@",
+    "data": {
+      "first name": "Margaretha Sophia Augusta",
+      "last name": "Poppenhausen",
+      "gender": "F",
+      "birthday": "ABT 1826",
+      "deathday": "19 APR 1828",
+      "occupation": "",
+      "report": "report_Sophia_Augusta_Poppenhausen_Death_1828.html"
+    },
+    "rels": {
+      "parents": [
+        "@I014@",
+        "@I017@"
+      ],
+      "spouses": [],
+      "children": []
+    }
+  }
+]
