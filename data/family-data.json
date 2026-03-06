@@ -12,12 +12,8 @@
     },
     "rels": {
       "parents": [],
-      "spouses": [
-        "@I002@"
-      ],
-      "children": [
-        "@I003@"
-      ]
+      "spouses": ["@I002@"],
+      "children": ["@I003@"]
     }
   },
   {
@@ -33,12 +29,8 @@
     },
     "rels": {
       "parents": [],
-      "spouses": [
-        "@I001@"
-      ],
-      "children": [
-        "@I003@"
-      ]
+      "spouses": ["@I001@"],
+      "children": ["@I003@"]
     }
   },
   {
@@ -53,10 +45,7 @@
       "report": ""
     },
     "rels": {
-      "parents": [
-        "@I001@",
-        "@I002@"
-      ],
+      "parents": ["@I001@", "@I002@"],
       "spouses": [],
       "children": []
     }
@@ -69,25 +58,19 @@
       "gender": "M",
       "birthday": "",
       "deathday": "",
-      "occupation": "Schlachter (butcher)",
+      "occupation": "Gastgeb (innkeeper)",
       "report": "report_Wilhelm_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html"
     },
     "rels": {
       "parents": [],
-      "spouses": [
-        "@I005@"
-      ],
-      "children": [
-        "@I006@",
-        "@I007@",
-        "@I008@"
-      ]
+      "spouses": ["@I005@"],
+      "children": ["@I006@", "@I007@", "@I019@", "@I020@", "@I021@", "@I022@", "@I008@"]
     }
   },
   {
     "id": "@I005@",
     "data": {
-      "first name": "Anna Maria",
+      "first name": "Anna Maria Elisabeth",
       "last name": "Schmidt",
       "gender": "F",
       "birthday": "",
@@ -97,32 +80,23 @@
     },
     "rels": {
       "parents": [],
-      "spouses": [
-        "@I004@"
-      ],
-      "children": [
-        "@I006@",
-        "@I007@",
-        "@I008@"
-      ]
+      "spouses": ["@I004@"],
+      "children": ["@I006@", "@I007@", "@I019@", "@I020@", "@I021@", "@I022@", "@I008@"]
     }
   },
   {
     "id": "@I006@",
     "data": {
-      "first name": "Anna Maria Catharina Elijabeth",
+      "first name": "Anna Maria Catharina Elisabeth",
       "last name": "Poppenhusen",
       "gender": "F",
-      "birthday": "15 1776",
+      "birthday": "1776",
       "deathday": "",
       "occupation": "",
       "report": "report_Anna_Maria_Catharina_Elijabeth_Poppenhusen_CLI-POPPENHUSEN.html"
     },
     "rels": {
-      "parents": [
-        "@I004@",
-        "@I005@"
-      ],
+      "parents": ["@I004@", "@I005@"],
       "spouses": [],
       "children": []
     }
@@ -139,10 +113,75 @@
       "report": ""
     },
     "rels": {
-      "parents": [
-        "@I004@",
-        "@I005@"
-      ],
+      "parents": ["@I004@", "@I005@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I019@",
+    "data": {
+      "first name": "Magdalena Margaretha",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "1781",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I004@", "@I005@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I020@",
+    "data": {
+      "first name": "Paul Wilhelm Friedrich",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "1783",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I004@", "@I005@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I021@",
+    "data": {
+      "first name": "Anna Christina Dorothea",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "1787",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I004@", "@I005@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I022@",
+    "data": {
+      "first name": "Paul Peter Wilhelm",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "1790",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I004@", "@I005@"],
       "spouses": [],
       "children": []
     }
@@ -159,16 +198,9 @@
       "report": "report_Nicolaus_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html"
     },
     "rels": {
-      "parents": [
-        "@I004@",
-        "@I005@"
-      ],
-      "spouses": [
-        "@I009@"
-      ],
-      "children": [
-        "@I010@"
-      ]
+      "parents": ["@I004@", "@I005@"],
+      "spouses": ["@I009@"],
+      "children": ["@I010@"]
     }
   },
   {
@@ -184,12 +216,8 @@
     },
     "rels": {
       "parents": [],
-      "spouses": [
-        "@I008@"
-      ],
-      "children": [
-        "@I010@"
-      ]
+      "spouses": ["@I008@"],
+      "children": ["@I010@"]
     }
   },
   {
@@ -204,10 +232,7 @@
       "report": "report_Christina_Dorthea_Poppenhusen_CLI-POPPENHUSEN.html"
     },
     "rels": {
-      "parents": [
-        "@I008@",
-        "@I009@"
-      ],
+      "parents": ["@I008@", "@I009@"],
       "spouses": [],
       "children": []
     }
@@ -271,19 +296,13 @@
       "gender": "M",
       "birthday": "",
       "deathday": "",
-      "occupation": "Ohlagesell (oil worker) / Ehehandlungsgesell",
+      "occupation": "Ohlagesell (oil worker)",
       "report": ""
     },
     "rels": {
       "parents": [],
-      "spouses": [
-        "@I015@",
-        "@I017@"
-      ],
-      "children": [
-        "@I016@",
-        "@I018@"
-      ]
+      "spouses": ["@I015@", "@I017@"],
+      "children": ["@I016@", "@I018@"]
     }
   },
   {
@@ -299,12 +318,8 @@
     },
     "rels": {
       "parents": [],
-      "spouses": [
-        "@I014@"
-      ],
-      "children": [
-        "@I016@"
-      ]
+      "spouses": ["@I014@"],
+      "children": ["@I016@"]
     }
   },
   {
@@ -319,10 +334,7 @@
       "report": ""
     },
     "rels": {
-      "parents": [
-        "@I014@",
-        "@I015@"
-      ],
+      "parents": ["@I014@", "@I015@"],
       "spouses": [],
       "children": []
     }
@@ -340,12 +352,8 @@
     },
     "rels": {
       "parents": [],
-      "spouses": [
-        "@I014@"
-      ],
-      "children": [
-        "@I018@"
-      ]
+      "spouses": ["@I014@"],
+      "children": ["@I018@"]
     }
   },
   {
@@ -360,10 +368,7 @@
       "report": "report_Sophia_Augusta_Poppenhausen_Death_1828.html"
     },
     "rels": {
-      "parents": [
-        "@I014@",
-        "@I017@"
-      ],
+      "parents": ["@I014@", "@I017@"],
       "spouses": [],
       "children": []
     }

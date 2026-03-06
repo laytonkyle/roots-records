@@ -1,684 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poppenhusen Christening Verification — Delingsdorf 1770–1821</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #1a2332;
-    --blue: #2563eb;
-    --blue-light: #dbeafe;
-    --green: #059669;
-    --green-light: #d1fae5;
-    --green-text: #065f46;
-    --red: #dc2626;
-    --red-light: #fee2e2;
-    --red-text: #991b1b;
-    --amber: #d97706;
-    --amber-light: #fef3c7;
-    --amber-text: #92400e;
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-400: #9ca3af;
-    --gray-500: #6b7280;
-    --gray-700: #374151;
-    --gray-900: #111827;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roots Record Finder — Poppenhusen Christening Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #faf8f5;
+            --color-surface: #ffffff;
+            --color-text: #2c2416;
+            --color-text-muted: #6b5e4f;
+            --color-accent: #8b6914;
+            --color-accent-light: #f5eddc;
+            --color-border: #e5ddd0;
+            --color-success: #2d7d46;
+            --color-success-bg: #e8f5ec;
+            --color-best: #c4860b;
+            --color-best-bg: #fff8e6;
+            --color-danger: #b91c1c;
+            --color-danger-bg: #fef2f2;
+            --color-warning: #92400e;
+            --color-warning-bg: #fffbeb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+        .header { text-align: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 2px solid var(--color-border); }
+        .header h1 { font-family: 'Crimson Pro', Georgia, serif; font-size: 2.2rem; font-weight: 700; color: var(--color-accent); margin-bottom: 8px; }
+        .header .subtitle { font-size: 0.95rem; color: var(--color-text-muted); }
+        .header .date { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px; }
+        .back-link { display: inline-block; margin-bottom: 16px; font-size: 0.85rem; color: var(--color-accent); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
 
-  body {
-    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--gray-900);
-    background: var(--gray-50);
-    line-height: 1.6;
-    padding: 2rem 1rem;
-  }
+        .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 28px; margin-bottom: 24px; }
+        .card h2 { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--color-accent); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--color-border); }
 
-  .container { max-width: 960px; margin: 0 auto; }
+        /* Stats row */
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 16px; text-align: center; }
+        .stat-value { font-family: 'Crimson Pro', Georgia, serif; font-size: 2rem; font-weight: 700; line-height: 1.2; }
+        .stat-value.accent { color: var(--color-accent); }
+        .stat-value.success { color: var(--color-success); }
+        .stat-value.danger { color: var(--color-danger); }
+        .stat-value.warning { color: var(--color-best); }
+        .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-top: 4px; }
 
-  h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        /* Callout */
+        .best-match-box { background: var(--color-best-bg); border: 2px solid var(--color-best); border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+        .best-match-box .best-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-best); font-weight: 700; margin-bottom: 6px; }
+        .best-match-box .best-text { font-size: 0.95rem; color: var(--color-text); }
 
-  h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.25rem;
-  }
+        /* Family cards */
+        .family-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+        .family-card.wf { border-left: 4px solid var(--color-success); }
+        .family-card.jurgen { border-left: 4px solid var(--color-danger); }
+        .family-card.unknown { border-left: 4px solid var(--color-best); }
+        .family-name { font-family: 'Crimson Pro', Georgia, serif; font-weight: 600; font-size: 1.1rem; color: var(--color-text); margin-bottom: 4px; }
+        .family-detail { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 10px; }
+        .family-children { display: flex; flex-wrap: wrap; gap: 6px; }
+        .child-tag { display: inline-block; font-size: 0.78rem; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+        .child-tag.wf { background: var(--color-success-bg); color: var(--color-success); }
+        .child-tag.jurgen { background: var(--color-danger-bg); color: var(--color-danger); }
+        .child-tag.unknown { background: var(--color-warning-bg); color: var(--color-warning); }
 
-  .subtitle {
-    color: var(--gray-500);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-  }
+        /* Data table */
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88rem; }
+        .data-table th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); background: var(--color-bg); text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+        .data-table td { padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+        .data-table tr:hover { background: var(--color-accent-light); }
 
-  .header {
-    border-bottom: 3px solid var(--navy);
-    padding-bottom: 1.25rem;
-    margin-bottom: 2rem;
-  }
+        .badge { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+        .badge-yes { background: var(--color-success-bg); color: var(--color-success); }
+        .badge-no { background: var(--color-danger-bg); color: var(--color-danger); }
+        .badge-uncertain { background: var(--color-warning-bg); color: var(--color-warning); }
+        .badge-pending { background: var(--color-bg); color: var(--color-text-muted); border: 1px solid var(--color-border); }
 
-  .meta {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    font-size: 0.85rem;
-    color: var(--gray-500);
-    margin-top: 0.5rem;
-  }
+        .name-register { font-weight: 600; color: var(--color-text); }
+        .name-index { font-size: 0.8rem; font-style: italic; color: var(--color-text-muted); }
+        .father-wf { font-weight: 600; color: var(--color-success); }
+        .father-jurgen { font-weight: 600; color: var(--color-danger); }
+        .father-unknown { font-weight: 600; color: var(--color-best); }
+        .occ { font-size: 0.78rem; color: var(--color-text-muted); }
+        .remaining { color: var(--color-text-muted); font-style: italic; }
 
-  /* Summary stats */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
+        /* Notes */
+        .notes-list { padding-left: 1.25rem; font-size: 0.9rem; color: var(--color-text); }
+        .notes-list li { margin-bottom: 8px; }
 
-  .stat-card {
-    background: white;
-    border-radius: 0.75rem;
-    padding: 1.25rem;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    border: 1px solid var(--gray-200);
-  }
+        .source-url-box { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 6px; padding: 12px 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .source-url-box .source-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); white-space: nowrap; font-weight: 600; }
+        .source-url-box a { font-size: 0.9rem; color: var(--color-accent); word-break: break-all; }
 
-  .stat-value {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.2;
-  }
+        .footer { text-align: center; padding-top: 32px; border-top: 1px solid var(--color-border); margin-top: 48px; font-size: 0.8rem; color: var(--color-text-muted); }
+        .footer a { color: var(--color-accent); }
 
-  .stat-value.blue { color: var(--blue); }
-  .stat-value.green { color: var(--green); }
-  .stat-value.red { color: var(--red); }
-  .stat-value.amber { color: var(--amber); }
-
-  .stat-label {
-    font-size: 0.8rem;
-    color: var(--gray-500);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 0.25rem;
-  }
-
-  /* Family summary */
-  .families-section {
-    margin-bottom: 2rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .family-card {
-    background: white;
-    border-radius: 0.75rem;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    border: 1px solid var(--gray-200);
-    border-left: 4px solid var(--blue);
-  }
-
-  .family-card.jurgen { border-left-color: var(--red); }
-  .family-card.unknown { border-left-color: var(--amber); }
-
-  .family-name {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--navy);
-    margin-bottom: 0.25rem;
-  }
-
-  .family-detail {
-    font-size: 0.9rem;
-    color: var(--gray-500);
-  }
-
-  .family-children {
-    margin-top: 0.75rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .child-tag {
-    display: inline-block;
-    font-size: 0.8rem;
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    font-weight: 600;
-  }
-
-  .child-tag.wf { background: var(--blue-light); color: #1e40af; }
-  .child-tag.jurgen { background: var(--red-light); color: var(--red-text); }
-  .child-tag.unknown { background: var(--amber-light); color: var(--amber-text); }
-
-  /* Main table */
-  .table-wrap {
-    overflow-x: auto;
-    margin-bottom: 2rem;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.88rem;
-    background: white;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-
-  thead th {
-    background: var(--navy);
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.75rem 0.75rem;
-    text-align: left;
-    white-space: nowrap;
-  }
-
-  tbody td {
-    padding: 0.65rem 0.75rem;
-    border-bottom: 1px solid var(--gray-100);
-    vertical-align: top;
-  }
-
-  tbody tr:last-child td { border-bottom: none; }
-
-  tbody tr:hover { background: var(--gray-50); }
-
-  .badge {
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  .badge-yes { background: var(--green-light); color: var(--green-text); }
-  .badge-no { background: var(--red-light); color: var(--red-text); }
-  .badge-uncertain { background: var(--amber-light); color: var(--amber-text); }
-  .badge-pending { background: var(--gray-100); color: var(--gray-500); }
-
-  .name-index {
-    color: var(--gray-400);
-    font-size: 0.8rem;
-    font-style: italic;
-  }
-
-  .name-register {
-    font-weight: 600;
-    color: var(--navy);
-  }
-
-  .father-name { font-weight: 600; }
-  .father-wf { color: var(--blue); }
-  .father-jurgen { color: var(--red); }
-  .father-unknown { color: var(--amber); }
-
-  /* Notes section */
-  .notes {
-    background: white;
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    border: 1px solid var(--gray-200);
-  }
-
-  .notes h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.75rem;
-  }
-
-  .notes ul {
-    padding-left: 1.25rem;
-    color: var(--gray-700);
-    font-size: 0.9rem;
-  }
-
-  .notes li { margin-bottom: 0.4rem; }
-
-  .callout {
-    border-left: 4px solid var(--amber);
-    background: var(--amber-light);
-    padding: 1rem 1.25rem;
-    border-radius: 0 0.5rem 0.5rem 0;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-    color: var(--amber-text);
-  }
-
-  .callout strong { color: var(--gray-900); }
-
-  .remaining {
-    color: var(--gray-400);
-    font-style: italic;
-  }
-
-  footer {
-    border-top: 1px solid var(--gray-200);
-    padding-top: 1rem;
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    color: var(--gray-400);
-    text-align: center;
-  }
-
-  @media (max-width: 640px) {
-    .stats-row { grid-template-columns: repeat(2, 1fr); }
-    h1 { font-size: 1.4rem; }
-    table { font-size: 0.8rem; }
-    thead th, tbody td { padding: 0.5rem; }
-  }
-
-  @media print {
-    body { background: white; padding: 0; }
-    .stat-card, .family-card, .notes, table { box-shadow: none; }
-    .stat-value.blue, .stat-value.green, .stat-value.red, .stat-value.amber,
-    .badge, .child-tag, thead th { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  }
-</style>
+        @media (max-width: 640px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 1.6rem; }
+            .data-table { font-size: 0.8rem; }
+            .data-table th, .data-table td { padding: 8px 6px; }
+        }
+        @media print {
+            body { background: white; }
+            .card, .stat-card, .family-card { box-shadow: none; }
+            .badge, .child-tag { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+        }
+    </style>
 </head>
 <body>
 <div class="container">
 
-  <div class="header">
-    <h1>Poppenhusen Christening Verification</h1>
-    <p class="subtitle">Delingsdorf Parish — Vol. 274917 (Taufen 1770–1794) &amp; Vol. 274908 (Namensregister)</p>
-    <div class="meta">
-      <span>Source: Archion.de</span>
-      <span>Report date: 6 March 2026</span>
-      <span>Status: 11 of 21 entries verified</span>
-    </div>
-  </div>
+    <a href="index.html" class="back-link">&larr; Back to Archive</a>
 
-  <!-- Summary Stats -->
-  <div class="stats-row">
-    <div class="stat-card">
-      <div class="stat-value blue">21</div>
-      <div class="stat-label">Total Entries</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value green">6</div>
-      <div class="stat-label">W.F. Confirmed</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value red">4</div>
-      <div class="stat-label">Jürgen's Children</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value amber">1</div>
-      <div class="stat-label">Uncertain (3rd Brother?)</div>
-    </div>
-  </div>
-
-  <!-- Callout -->
-  <div class="callout">
-    <strong>Key finding:</strong> The 21 "Poppenhusen" christening entries in the name index belong to at least 2, possibly 3 different fathers. Only entries where the father is explicitly <strong>Wilhelm Friedrich Poppenhusen</strong> (Bürger und Gastgeb) with wife <strong>Anna Maria (Elisabeth) geb. Schmidt</strong> from Dilenburg are confirmed matches.
-  </div>
-
-  <!-- Family Groups -->
-  <div class="families-section">
-    <h2>Identified Family Groups</h2>
-
-    <div class="family-card">
-      <div class="family-name">Wilhelm Friedrich Poppenhusen × Anna Maria (Elisabeth) geb. Schmidt</div>
-      <div class="family-detail">Occupation: Bürger und Gastgeb (citizen &amp; innkeeper) — Wife from Dilenburg</div>
-      <div class="family-children">
-        <span class="child-tag wf">Anna Maria Cath. Elisabeth (1776)</span>
-        <span class="child-tag wf">Catharina Dorothea (1778)</span>
-        <span class="child-tag wf">Magdalena Margaretha (1781)</span>
-        <span class="child-tag wf">Paul Wilhelm Friedrich (1783)</span>
-        <span class="child-tag wf">Anna Christina Dorothea (1787)</span>
-        <span class="child-tag wf">Paul Peter Wilhelm (1790)</span>
-      </div>
+    <div class="header">
+        <h1>Christening Verification</h1>
+        <div class="subtitle">Delingsdorf Parish &mdash; Vol. 274917 (Taufen 1770&ndash;1794) &amp; Vol. 274908 (Namensregister)</div>
+        <div class="date">Report date: 6 March 2026 &middot; Status: 11 of 21 entries verified</div>
     </div>
 
-    <div class="family-card jurgen">
-      <div class="family-name">Jürgen Poppenhusen × Maria Magdalena geb. Dibbern</div>
-      <div class="family-detail">Occupation: Bürger und Amts-Knecht (citizen &amp; civil servant)</div>
-      <div class="family-children">
-        <span class="child-tag jurgen">Jürgen Nicolaus (1782)</span>
-        <span class="child-tag jurgen">Johann Hinrich (1785)</span>
-        <span class="child-tag jurgen">Paul Jürgen Friedrich (1788)</span>
-        <span class="child-tag jurgen">Henrietta Dorothea (1791)</span>
-      </div>
+    <!-- Summary Stats -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-value accent">21</div>
+            <div class="stat-label">Total Entries</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value success">6</div>
+            <div class="stat-label">W.F. Confirmed</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value danger">4</div>
+            <div class="stat-label">J&uuml;rgen's Children</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value warning">1</div>
+            <div class="stat-label">Uncertain (3rd Brother?)</div>
+        </div>
     </div>
 
-    <div class="family-card unknown">
-      <div class="family-name">[Theodor?] Friedrich Poppenhusen × Anna Maria geb. [?]</div>
-      <div class="family-detail">Occupation: Bürger und Amts-Knecht — Father's first name does not match "Wilhelm" in confirmed entries. Possible 3rd brother.</div>
-      <div class="family-children">
-        <span class="child-tag unknown">Cristina Magdalena (1785)</span>
-      </div>
+    <!-- Callout -->
+    <div class="best-match-box">
+        <div class="best-label">Key Finding</div>
+        <div class="best-text">The 21 &ldquo;Poppenhusen&rdquo; christening entries in the name index belong to at least 2, possibly 3 different fathers. Only entries where the father is explicitly <strong>Wilhelm Friedrich Poppenhusen</strong> (B&uuml;rger und Gastgeb) with wife <strong>Anna Maria (Elisabeth) geb. Schmidt</strong> from Dilenburg are confirmed matches.</div>
     </div>
-  </div>
 
-  <!-- Full Verification Table -->
-  <h2>Entry-by-Entry Verification</h2>
+    <!-- Family Groups -->
+    <div class="card">
+        <h2>Identified Family Groups</h2>
 
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Child Name</th>
-          <th>Year</th>
-          <th>Entry</th>
-          <th>Page</th>
-          <th>Father</th>
-          <th>Mother</th>
-          <th>W.F.?</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Entry 1 -->
-        <tr>
-          <td>1</td>
-          <td>
-            <div class="name-register">Anna Maria Catharina Elisabeth</div>
-            <div class="name-index">Index: Anna Maria Catharina Elijabeth</div>
-          </td>
-          <td>1776</td>
-          <td>63</td>
-          <td>p52</td>
-          <td><span class="father-name father-wf">Wilhelm Friedrich Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Gastgeb</span></td>
-          <td>Anna Maria geb. Schmidt</td>
-          <td><span class="badge badge-yes">Yes</span></td>
-        </tr>
-        <!-- Entry 2 -->
-        <tr>
-          <td>2</td>
-          <td>
-            <div class="name-register">Catharina Dorothea</div>
-          </td>
-          <td>1778</td>
-          <td>18</td>
-          <td>p67</td>
-          <td><span class="father-name father-wf">Wilhelm Friedrich Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Gastgeb</span></td>
-          <td>Anna Maria geb. Schmidt</td>
-          <td><span class="badge badge-yes">Yes</span></td>
-        </tr>
-        <!-- Entry 3 -->
-        <tr>
-          <td>3</td>
-          <td>
-            <div class="name-register">Magdalena Margaretha</div>
-          </td>
-          <td>1781</td>
-          <td>66</td>
-          <td>p119</td>
-          <td><span class="father-name father-wf">Wilhelm Friedrich Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Gastgeb</span></td>
-          <td>Anna Maria geb. Schmidt</td>
-          <td><span class="badge badge-yes">Yes</span></td>
-        </tr>
-        <!-- Entry 4 -->
-        <tr>
-          <td>4</td>
-          <td>
-            <div class="name-register">Jürgen Nicolaus</div>
-          </td>
-          <td>1782</td>
-          <td>58</td>
-          <td>p135</td>
-          <td><span class="father-name father-jurgen">Jürgen Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Amts-Knecht</span></td>
-          <td>Maria Magdalena geb. Dibbern</td>
-          <td><span class="badge badge-no">No</span></td>
-        </tr>
-        <!-- Entry 5 -->
-        <tr>
-          <td>5</td>
-          <td>
-            <div class="name-register">Paul Wilhelm Friedrich</div>
-            <div class="name-index">Index: Gunst Wilhelm Friedrich</div>
-          </td>
-          <td>1783</td>
-          <td>112</td>
-          <td>p159</td>
-          <td><span class="father-name father-wf">Wilhelm Friedrich Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Gastgeb</span></td>
-          <td>Anna Maria geb. Schmidt</td>
-          <td><span class="badge badge-yes">Yes</span></td>
-        </tr>
-        <!-- Entry 6 -->
-        <tr>
-          <td>6</td>
-          <td>
-            <div class="name-register">Johann Hinrich</div>
-            <div class="name-index">Index: Johann Grunof</div>
-          </td>
-          <td>1785</td>
-          <td>69</td>
-          <td>p186</td>
-          <td><span class="father-name father-jurgen">Jürgen Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Amts-Knecht</span></td>
-          <td>Maria Magdalena geb. Dibbern</td>
-          <td><span class="badge badge-no">No</span></td>
-        </tr>
-        <!-- Entry 7 -->
-        <tr>
-          <td>7</td>
-          <td>
-            <div class="name-register">Cristina Magdalena</div>
-            <div class="name-index">Index: Josefina Magdalena</div>
-          </td>
-          <td>1785</td>
-          <td>93</td>
-          <td>p189</td>
-          <td><span class="father-name father-unknown">[Theodor?] Friedrich Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Amts-Knecht</span></td>
-          <td>Anna Maria geb. [?]</td>
-          <td><span class="badge badge-uncertain">Uncertain</span></td>
-        </tr>
-        <!-- Entry 8 -->
-        <tr>
-          <td>8</td>
-          <td>
-            <div class="name-register">Anna Christina Dorothea</div>
-            <div class="name-index">Index: Anna Goffman Dorothea</div>
-          </td>
-          <td>1787</td>
-          <td>89</td>
-          <td>p223</td>
-          <td><span class="father-name father-wf">Wilhelm Friedrich Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Gastgeb</span></td>
-          <td>Anna Maria Elisabeth geb. Schmidt</td>
-          <td><span class="badge badge-yes">Yes</span></td>
-        </tr>
-        <!-- Entry 9 -->
-        <tr>
-          <td>9</td>
-          <td>
-            <div class="name-register">Paul Jürgen Friedrich</div>
-          </td>
-          <td>1788</td>
-          <td>31</td>
-          <td>p232</td>
-          <td><span class="father-name father-jurgen">Jürgen Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Amts-Knecht</span></td>
-          <td>Maria Magdalena geb. Dibbern</td>
-          <td><span class="badge badge-no">No</span></td>
-        </tr>
-        <!-- Entry 10 -->
-        <tr>
-          <td>10</td>
-          <td>
-            <div class="name-register">Paul Peter Wilhelm</div>
-            <div class="name-index">Index: Gunst Peter Nicolaus</div>
-          </td>
-          <td>1790</td>
-          <td>79</td>
-          <td>p276</td>
-          <td><span class="father-name father-wf">Wilhelm Friedrich Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Gastgeb</span></td>
-          <td>Anna Maria geb. Schmidt</td>
-          <td><span class="badge badge-yes">Yes</span></td>
-        </tr>
-        <!-- Entry 11 -->
-        <tr>
-          <td>11</td>
-          <td>
-            <div class="name-register">Henrietta Dorothea</div>
-            <div class="name-index">Index: Margarethe Dorothea</div>
-          </td>
-          <td>1791</td>
-          <td>105</td>
-          <td>p297</td>
-          <td><span class="father-name father-jurgen">Jürgen Poppenhusen</span><br><span style="font-size:0.8rem;color:var(--gray-500)">Bürger u. Amts-Knecht</span></td>
-          <td>Maria Magdalena geb. Dibbern</td>
-          <td><span class="badge badge-no">No</span></td>
-        </tr>
-        <!-- Entries 12-21: Remaining -->
-        <tr>
-          <td>12</td>
-          <td><div class="name-register remaining">Friedrich Goffman</div></td>
-          <td>1795</td>
-          <td>3</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>13</td>
-          <td><div class="name-register remaining">Maria Goffman Wilhelmine</div></td>
-          <td>1808</td>
-          <td>46</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>14</td>
-          <td><div class="name-register remaining">Jürgen Jacob Hinrich</div></td>
-          <td>1810</td>
-          <td>26</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>15</td>
-          <td><div class="name-register remaining">Juliette Margaretha</div></td>
-          <td>1811</td>
-          <td>57</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>16</td>
-          <td><div class="name-register remaining">Maria Margaretha Ulricke</div></td>
-          <td>1812</td>
-          <td>85</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>17</td>
-          <td><div class="name-register remaining">Goffman Friedrich</div></td>
-          <td>1814</td>
-          <td>58</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>18</td>
-          <td><div class="name-register remaining">Paul Friedrich</div></td>
-          <td>1815</td>
-          <td>78</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>19</td>
-          <td><div class="name-register remaining">Margarethe Dorothea</div></td>
-          <td>1817</td>
-          <td>109</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>20</td>
-          <td><div class="name-register remaining">Sophia Margaretha Friedricien</div></td>
-          <td>1819</td>
-          <td>85</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td><div class="name-register remaining">Gunof August Matthias</div></td>
-          <td>1821</td>
-          <td>49</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td class="remaining">—</td>
-          <td><span class="badge badge-pending">Pending</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        <div class="family-card wf">
+            <div class="family-name">Wilhelm Friedrich Poppenhusen &times; Anna Maria (Elisabeth) geb. Schmidt</div>
+            <div class="family-detail">Occupation: B&uuml;rger und Gastgeb (citizen &amp; innkeeper) &mdash; Wife from Dilenburg</div>
+            <div class="family-children">
+                <span class="child-tag wf">Anna Maria Cath. Elisabeth (1776)</span>
+                <span class="child-tag wf">Catharina Dorothea (1778)</span>
+                <span class="child-tag wf">Magdalena Margaretha (1781)</span>
+                <span class="child-tag wf">Paul Wilhelm Friedrich (1783)</span>
+                <span class="child-tag wf">Anna Christina Dorothea (1787)</span>
+                <span class="child-tag wf">Paul Peter Wilhelm (1790)</span>
+            </div>
+        </div>
 
-  <!-- Notes -->
-  <div class="notes">
-    <h3>Observations</h3>
-    <ul>
-      <li><strong>Name discrepancies:</strong> The name index transcriptions frequently differ from the actual register entries (e.g., "Gunst Wilhelm Friedrich" in the index → "Paul Wilhelm Friedrich" in the register; "Anna Goffman Dorothea" → "Anna Christina Dorothea"). The index was likely compiled later from abbreviated or difficult-to-read entries.</li>
-      <li><strong>Entry numbers may not match:</strong> The name index entry numbers don't always correspond to the register (e.g., index listed Jürgen Nicolaus as e29, but the actual register entry was e58).</li>
-      <li><strong>Mother's full name:</strong> Entry 8 (1787) reveals the mother's full name as <strong>Anna Maria Elisabeth geb. Schmidt</strong> — earlier entries abbreviated to just "Anna Maria."</li>
-      <li><strong>Occupation as identifier:</strong> W.F. Poppenhusen is consistently described as <em>Bürger und Gastgeb</em> (innkeeper), while Jürgen Poppenhusen is <em>Bürger und Amts-Knecht</em> (civil servant). This, combined with the mother's name, provides reliable disambiguation.</li>
-      <li><strong>Possible 3rd brother (entry 7):</strong> The father's first name in entry 93 (p189) does not clearly read "Wilhelm" — another AI transcription suggested "Theodor." The handwriting comparison against confirmed "Wilhelm" entries shows a different letter pattern. The occupation also reads "Amts-Knecht" rather than "Gastgeb." However, the mother is "Anna Maria" (not Maria Magdalena), which doesn't match Jürgen's wife. This may represent a third Poppenhusen brother.</li>
-      <li><strong>Remaining entries 12–17 (1795–1814):</strong> Vol. 274917 covers only 1770–1794. Entry 12 (Friedrich Goffman, 1795) may be at the very end of this volume, but entries 13–17 require Vol. 274918 (Taufen 1794–1821).</li>
-      <li><strong>Remaining entries 18–21 (1815–1821):</strong> These are in Vol. 274918.</li>
-    </ul>
-  </div>
+        <div class="family-card jurgen">
+            <div class="family-name">J&uuml;rgen Poppenhusen &times; Maria Magdalena geb. Dibbern</div>
+            <div class="family-detail">Occupation: B&uuml;rger und Amts-Knecht (citizen &amp; civil servant)</div>
+            <div class="family-children">
+                <span class="child-tag jurgen">J&uuml;rgen Nicolaus (1782)</span>
+                <span class="child-tag jurgen">Johann Hinrich (1785)</span>
+                <span class="child-tag jurgen">Paul J&uuml;rgen Friedrich (1788)</span>
+                <span class="child-tag jurgen">Henrietta Dorothea (1791)</span>
+            </div>
+        </div>
 
-  <div class="notes">
-    <h3>Source Volumes</h3>
-    <ul>
-      <li><strong>Vol. 274908</strong> — Namensregister Taufen 1770–1821 (Name index, 138 pages) — 21 Poppenhusen/Poppenhausen entries</li>
-      <li><strong>Vol. 274917</strong> — Taufen 1770–1794 (Christening register, 353 pages) — Entries 1–12 verified here</li>
-      <li><strong>Vol. 274918</strong> — Taufen 1794–1821 — Needed for entries 12–21</li>
-    </ul>
-  </div>
+        <div class="family-card unknown">
+            <div class="family-name">[Theodor?] Friedrich Poppenhusen &times; Anna Maria geb. [?]</div>
+            <div class="family-detail">Occupation: B&uuml;rger und Amts-Knecht &mdash; Father's first name does not match &ldquo;Wilhelm&rdquo; in confirmed entries. Possible 3rd brother.</div>
+            <div class="family-children">
+                <span class="child-tag unknown">Cristina Magdalena (1785)</span>
+            </div>
+        </div>
+    </div>
 
-  <footer>
-    Poppenhusen Christening Verification &middot; Delingsdorf Parish, Holstein &middot; Generated 6 March 2026
-  </footer>
+    <!-- Full Verification Table -->
+    <div class="card">
+        <h2>Entry-by-Entry Verification</h2>
+
+        <div style="overflow-x:auto">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Child Name</th>
+                    <th>Year</th>
+                    <th>Entry</th>
+                    <th>Page</th>
+                    <th>Father</th>
+                    <th>Mother</th>
+                    <th>W.F.?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <div class="name-register">Anna Maria Catharina Elisabeth</div>
+                        <div class="name-index">Index: Anna Maria Catharina Elijabeth</div>
+                    </td>
+                    <td>1776</td>
+                    <td>63</td>
+                    <td>p52</td>
+                    <td><span class="father-wf">Wilhelm Friedrich Poppenhusen</span><br><span class="occ">B&uuml;rger u. Gastgeb</span></td>
+                    <td>Anna Maria geb. Schmidt</td>
+                    <td><span class="badge badge-yes">Yes</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><div class="name-register">Catharina Dorothea</div></td>
+                    <td>1778</td>
+                    <td>18</td>
+                    <td>p67</td>
+                    <td><span class="father-wf">Wilhelm Friedrich Poppenhusen</span><br><span class="occ">B&uuml;rger u. Gastgeb</span></td>
+                    <td>Anna Maria geb. Schmidt</td>
+                    <td><span class="badge badge-yes">Yes</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><div class="name-register">Magdalena Margaretha</div></td>
+                    <td>1781</td>
+                    <td>66</td>
+                    <td>p119</td>
+                    <td><span class="father-wf">Wilhelm Friedrich Poppenhusen</span><br><span class="occ">B&uuml;rger u. Gastgeb</span></td>
+                    <td>Anna Maria geb. Schmidt</td>
+                    <td><span class="badge badge-yes">Yes</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><div class="name-register">J&uuml;rgen Nicolaus</div></td>
+                    <td>1782</td>
+                    <td>58</td>
+                    <td>p135</td>
+                    <td><span class="father-jurgen">J&uuml;rgen Poppenhusen</span><br><span class="occ">B&uuml;rger u. Amts-Knecht</span></td>
+                    <td>Maria Magdalena geb. Dibbern</td>
+                    <td><span class="badge badge-no">No</span></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>
+                        <div class="name-register">Paul Wilhelm Friedrich</div>
+                        <div class="name-index">Index: Gunst Wilhelm Friedrich</div>
+                    </td>
+                    <td>1783</td>
+                    <td>112</td>
+                    <td>p159</td>
+                    <td><span class="father-wf">Wilhelm Friedrich Poppenhusen</span><br><span class="occ">B&uuml;rger u. Gastgeb</span></td>
+                    <td>Anna Maria geb. Schmidt</td>
+                    <td><span class="badge badge-yes">Yes</span></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>
+                        <div class="name-register">Johann Hinrich</div>
+                        <div class="name-index">Index: Johann Grunof</div>
+                    </td>
+                    <td>1785</td>
+                    <td>69</td>
+                    <td>p186</td>
+                    <td><span class="father-jurgen">J&uuml;rgen Poppenhusen</span><br><span class="occ">B&uuml;rger u. Amts-Knecht</span></td>
+                    <td>Maria Magdalena geb. Dibbern</td>
+                    <td><span class="badge badge-no">No</span></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>
+                        <div class="name-register">Cristina Magdalena</div>
+                        <div class="name-index">Index: Josefina Magdalena</div>
+                    </td>
+                    <td>1785</td>
+                    <td>93</td>
+                    <td>p189</td>
+                    <td><span class="father-unknown">[Theodor?] Friedrich Poppenhusen</span><br><span class="occ">B&uuml;rger u. Amts-Knecht</span></td>
+                    <td>Anna Maria geb. [?]</td>
+                    <td><span class="badge badge-uncertain">Uncertain</span></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>
+                        <div class="name-register">Anna Christina Dorothea</div>
+                        <div class="name-index">Index: Anna Goffman Dorothea</div>
+                    </td>
+                    <td>1787</td>
+                    <td>89</td>
+                    <td>p223</td>
+                    <td><span class="father-wf">Wilhelm Friedrich Poppenhusen</span><br><span class="occ">B&uuml;rger u. Gastgeb</span></td>
+                    <td>Anna Maria Elisabeth geb. Schmidt</td>
+                    <td><span class="badge badge-yes">Yes</span></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><div class="name-register">Paul J&uuml;rgen Friedrich</div></td>
+                    <td>1788</td>
+                    <td>31</td>
+                    <td>p232</td>
+                    <td><span class="father-jurgen">J&uuml;rgen Poppenhusen</span><br><span class="occ">B&uuml;rger u. Amts-Knecht</span></td>
+                    <td>Maria Magdalena geb. Dibbern</td>
+                    <td><span class="badge badge-no">No</span></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>
+                        <div class="name-register">Paul Peter Wilhelm</div>
+                        <div class="name-index">Index: Gunst Peter Nicolaus</div>
+                    </td>
+                    <td>1790</td>
+                    <td>79</td>
+                    <td>p276</td>
+                    <td><span class="father-wf">Wilhelm Friedrich Poppenhusen</span><br><span class="occ">B&uuml;rger u. Gastgeb</span></td>
+                    <td>Anna Maria geb. Schmidt</td>
+                    <td><span class="badge badge-yes">Yes</span></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>
+                        <div class="name-register">Henrietta Dorothea</div>
+                        <div class="name-index">Index: Margarethe Dorothea</div>
+                    </td>
+                    <td>1791</td>
+                    <td>105</td>
+                    <td>p297</td>
+                    <td><span class="father-jurgen">J&uuml;rgen Poppenhusen</span><br><span class="occ">B&uuml;rger u. Amts-Knecht</span></td>
+                    <td>Maria Magdalena geb. Dibbern</td>
+                    <td><span class="badge badge-no">No</span></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><div class="remaining">Friedrich Goffman</div></td>
+                    <td>1795</td>
+                    <td>3</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><div class="remaining">Maria Goffman Wilhelmine</div></td>
+                    <td>1808</td>
+                    <td>46</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><div class="remaining">J&uuml;rgen Jacob Hinrich</div></td>
+                    <td>1810</td>
+                    <td>26</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><div class="remaining">Juliette Margaretha</div></td>
+                    <td>1811</td>
+                    <td>57</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><div class="remaining">Maria Margaretha Ulricke</div></td>
+                    <td>1812</td>
+                    <td>85</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><div class="remaining">Goffman Friedrich</div></td>
+                    <td>1814</td>
+                    <td>58</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><div class="remaining">Paul Friedrich</div></td>
+                    <td>1815</td>
+                    <td>78</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td><div class="remaining">Margarethe Dorothea</div></td>
+                    <td>1817</td>
+                    <td>109</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><div class="remaining">Sophia Margaretha Friedricien</div></td>
+                    <td>1819</td>
+                    <td>85</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><div class="remaining">Gunof August Matthias</div></td>
+                    <td>1821</td>
+                    <td>49</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td class="remaining">&mdash;</td>
+                    <td><span class="badge badge-pending">Pending</span></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <!-- Observations -->
+    <div class="card">
+        <h2>Observations</h2>
+        <ul class="notes-list">
+            <li><strong>Name discrepancies:</strong> The name index transcriptions frequently differ from the actual register entries (e.g., &ldquo;Gunst Wilhelm Friedrich&rdquo; in the index &rarr; &ldquo;Paul Wilhelm Friedrich&rdquo; in the register; &ldquo;Anna Goffman Dorothea&rdquo; &rarr; &ldquo;Anna Christina Dorothea&rdquo;). The index was likely compiled later from abbreviated or difficult-to-read entries.</li>
+            <li><strong>Entry numbers may not match:</strong> The name index entry numbers don&rsquo;t always correspond to the register (e.g., index listed J&uuml;rgen Nicolaus as e29, but the actual register entry was e58).</li>
+            <li><strong>Mother&rsquo;s full name:</strong> Entry 8 (1787) reveals the mother&rsquo;s full name as <strong>Anna Maria Elisabeth geb. Schmidt</strong> &mdash; earlier entries abbreviated to just &ldquo;Anna Maria.&rdquo;</li>
+            <li><strong>Occupation as identifier:</strong> W.F. Poppenhusen is consistently described as <em>B&uuml;rger und Gastgeb</em> (innkeeper), while J&uuml;rgen Poppenhusen is <em>B&uuml;rger und Amts-Knecht</em> (civil servant). This, combined with the mother&rsquo;s name, provides reliable disambiguation.</li>
+            <li><strong>Possible 3rd brother (entry 7):</strong> The father&rsquo;s first name in entry 93 (p189) does not clearly read &ldquo;Wilhelm&rdquo; &mdash; another AI transcription suggested &ldquo;Theodor.&rdquo; The handwriting comparison against confirmed &ldquo;Wilhelm&rdquo; entries shows a different letter pattern. The occupation also reads &ldquo;Amts-Knecht&rdquo; rather than &ldquo;Gastgeb.&rdquo; However, the mother is &ldquo;Anna Maria&rdquo; (not Maria Magdalena), which doesn&rsquo;t match J&uuml;rgen&rsquo;s wife. This may represent a third Poppenhusen brother.</li>
+            <li><strong>Remaining entries 12&ndash;17 (1795&ndash;1814):</strong> Vol. 274917 covers only 1770&ndash;1794. Entry 12 (Friedrich Goffman, 1795) may be at the very end of this volume, but entries 13&ndash;17 require Vol. 274918 (Taufen 1794&ndash;1821).</li>
+            <li><strong>Remaining entries 18&ndash;21 (1815&ndash;1821):</strong> These are in Vol. 274918.</li>
+        </ul>
+    </div>
+
+    <!-- Sources -->
+    <div class="card">
+        <h2>Source Volumes</h2>
+        <div class="source-url-box">
+            <span class="source-label">Vol. 274908</span>
+            <a href="https://www.archion.de/en/viewer/churchRegister/274908">Namensregister Taufen 1770&ndash;1821 (Name index, 138 pages)</a>
+        </div>
+        <div class="source-url-box">
+            <span class="source-label">Vol. 274917</span>
+            <a href="https://www.archion.de/en/viewer/churchRegister/274917">Taufen 1770&ndash;1794 (Christening register, 353 pages)</a>
+        </div>
+        <div class="source-url-box">
+            <span class="source-label">Vol. 274918</span>
+            <a href="https://www.archion.de/en/viewer/churchRegister/274918">Taufen 1794&ndash;1821 (Needed for entries 12&ndash;21)</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Poppenhusen Christening Verification &middot; Delingsdorf Parish, Holstein</p>
+        <p>Generated 6 March 2026 &middot; <a href="index.html">Back to Archive</a></p>
+    </div>
 
 </div>
 </body>
