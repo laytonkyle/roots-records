@@ -51,6 +51,23 @@
     }
   },
   {
+    "id": "@I029@",
+    "data": {
+      "first name": "? (Father)",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "",
+      "deathday": "",
+      "occupation": "Unverified — sibling link assumed",
+      "report": ""
+    },
+    "rels": {
+      "parents": [],
+      "spouses": [],
+      "children": ["@I004@", "@I023@"]
+    }
+  },
+  {
     "id": "@I004@",
     "data": {
       "first name": "Wilhelm Friedrich",
@@ -62,7 +79,7 @@
       "report": "report_Wilhelm_Friedrich_Poppenhusen_CLI-POPPENHUSEN.html"
     },
     "rels": {
-      "parents": [],
+      "parents": ["@I029@"],
       "spouses": ["@I005@"],
       "children": ["@I006@", "@I007@", "@I019@", "@I020@", "@I021@", "@I022@", "@I008@"]
     }
@@ -300,7 +317,7 @@
       "report": ""
     },
     "rels": {
-      "parents": [],
+      "parents": ["@I029@"],
       "spouses": ["@I024@"],
       "children": ["@I025@", "@I026@", "@I027@", "@I028@"]
     }
