@@ -319,7 +319,7 @@
     "rels": {
       "parents": ["@I029@"],
       "spouses": ["@I024@"],
-      "children": ["@I025@", "@I026@", "@I027@", "@I028@"]
+      "children": ["@I025@", "@I026@", "@I027@", "@I028@", "@I030@"]
     }
   },
   {
@@ -336,7 +336,7 @@
     "rels": {
       "parents": [],
       "spouses": ["@I023@"],
-      "children": ["@I025@", "@I026@", "@I027@", "@I028@"]
+      "children": ["@I025@", "@I026@", "@I027@", "@I028@", "@I030@"]
     }
   },
   {
@@ -415,13 +415,13 @@
       "gender": "M",
       "birthday": "",
       "deathday": "",
-      "occupation": "Ohlagesell (oil worker)",
+      "occupation": "Weissgermeister (master tanner)",
       "report": ""
     },
     "rels": {
       "parents": [],
       "spouses": ["@I015@", "@I017@"],
-      "children": ["@I016@", "@I018@"]
+      "children": ["@I031@", "@I032@", "@I033@", "@I016@", "@I034@", "@I035@", "@I036@", "@I037@", "@I038@", "@I018@"]
     }
   },
   {
@@ -438,7 +438,7 @@
     "rels": {
       "parents": [],
       "spouses": ["@I014@"],
-      "children": ["@I016@"]
+      "children": ["@I031@", "@I032@", "@I033@", "@I016@", "@I034@", "@I035@", "@I036@", "@I037@", "@I038@"]
     }
   },
   {
@@ -447,7 +447,7 @@
       "first name": "Maria Margaretha Ulrica",
       "last name": "Poppenhausen",
       "gender": "F",
-      "birthday": "ABT 1813",
+      "birthday": "1812",
       "deathday": "1817",
       "occupation": "",
       "report": ""
@@ -488,6 +488,159 @@
     },
     "rels": {
       "parents": ["@I014@", "@I017@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I030@",
+    "data": {
+      "first name": "Paul Friedrich",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "1795",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I023@", "@I024@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I031@",
+    "data": {
+      "first name": "Maria Carolina Wilhelmina",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "1808",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I014@", "@I015@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I032@",
+    "data": {
+      "first name": "Juergen Jacob Theodor",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "1810",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I014@", "@I015@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I033@",
+    "data": {
+      "first name": "Juliette Margaretha Friderica",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "1811",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I014@", "@I015@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I034@",
+    "data": {
+      "first name": "Christian Friedrich Heinrich",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "1814",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I014@", "@I015@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I035@",
+    "data": {
+      "first name": "Karl Hinrich Friedrich",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "1815",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I014@", "@I015@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I036@",
+    "data": {
+      "first name": "Margaretha Dorothea Friderica",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "1817",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I014@", "@I015@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I037@",
+    "data": {
+      "first name": "Sophia Margaretha Friderica",
+      "last name": "Poppenhusen",
+      "gender": "F",
+      "birthday": "1819",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I014@", "@I015@"],
+      "spouses": [],
+      "children": []
+    }
+  },
+  {
+    "id": "@I038@",
+    "data": {
+      "first name": "Heinrich August Matthias",
+      "last name": "Poppenhusen",
+      "gender": "M",
+      "birthday": "1821",
+      "deathday": "",
+      "occupation": "",
+      "report": ""
+    },
+    "rels": {
+      "parents": ["@I014@", "@I015@"],
       "spouses": [],
       "children": []
     }
